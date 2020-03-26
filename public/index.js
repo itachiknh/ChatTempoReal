@@ -37,3 +37,14 @@ function rolarBaixo(){
 	    		scrollTop: $('#app')[0].scrollHeight}, "slow");
 	}, 300);
 }
+
+function error(data){
+	$(".erros").html("");
+	$(".erros").html(`<div class="erro">
+			${data}
+		</div>`)
+}
+
+socket.on('error', function(error){
+	error(error)
+})

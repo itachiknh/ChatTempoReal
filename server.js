@@ -18,7 +18,7 @@ app.use('/', (req, res) => {
 io.on('connection', socket => {
 	socket.on('enviarMensagem', data =>{
 		if(data.nome == '' || data.nome.length <= 0 || data.nome == null || data.msg == '' || data.msg.length <= 0 || data.msg == null){
-			socket.emit('error', 'Preencha o nome')
+			socket.emit('error', 'Preencha os campos')
 		} else{
 			console.log(`${data.nome} ${data.msg}`)
 			socket.broadcast.emit('receberMensagem', data) //Pra outras pessoas
