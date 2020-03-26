@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat em tempo real</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="app">
+		<input id="nome" type="text" name="" placeholder="Nome">
+		<div class="after"></div>
+		<form>
+			<input id="mensagem" type="text" name="" placeholder="Mensagem">
+			<button style="opacity: 0"></button>
+		</form>
+	</div>
+
+	<!-- Importar js de fora !-->
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>
