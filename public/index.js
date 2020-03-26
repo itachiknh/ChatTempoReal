@@ -44,7 +44,3 @@ function error(data){
 			${data}
 		</div>`)
 }
-
-socket.on('error', function(error){
-	error(error)
-})
