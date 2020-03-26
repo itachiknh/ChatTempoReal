@@ -9,6 +9,7 @@ function enviarMensagem(){
 		"nome": nome
 		}
 		socket.emit('enviarMensagem', object)
+		$("#mensagem").val("")
 		return false
 	})
 }
@@ -21,7 +22,6 @@ function receberMensagem(data){
 			<span>&nbsp;   ${data.msg}</span>
 		</div> <br>`
 	$(".after").before(msgHtml)
-	$("#mensagem").val("")
 }
 
 socket.on('receberMensagem', function(data){
