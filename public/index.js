@@ -10,6 +10,7 @@ function enviarMensagem(){
 		}
 		socket.emit('enviarMensagem', object)
 		$("#mensagem").val("")
+		rolarBaixo()
 		return false
 	})
 }
@@ -22,8 +23,17 @@ function receberMensagem(data){
 			<span>&nbsp;   ${data.msg}</span>
 		</div> <br>`
 	$(".after").before(msgHtml)
+	rolarBaixo()
 }
 
 socket.on('receberMensagem', function(data){
 	receberMensagem(data)
+
 })
+
+function rolarBaixo(){
+	setTimeout(function(){ 
+		$('#app').animate({
+	    		scrollTop: $('#app')[0].scrollHeight}, "slow");
+	}, 300);
+}
