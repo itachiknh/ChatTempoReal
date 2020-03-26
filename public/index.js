@@ -1,4 +1,4 @@
-var socket = io('http://localhost:8080')
+var socket = io('https://leptospirose.herokuapp.com/')
 
 function enviarMensagem(){
 	$("form button").click(function(){
