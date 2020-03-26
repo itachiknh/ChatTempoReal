@@ -8,6 +8,7 @@
 	height: 90%;
 	width: 100%;
 	max-width: 800px;
+	overflow: auto;
 }
 
 body{
