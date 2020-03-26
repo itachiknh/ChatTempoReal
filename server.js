@@ -17,7 +17,7 @@ app.use('/', (req, res) => {
 
 io.on('connection', socket => {
 	socket.on('enviarMensagem', data =>{
-		if(data.nome == '' && data.nome.length <= 0 && data.nome == null){
+		if(data.nome == '' || data.nome.length <= 0 || data.nome == null || data.msg == '' || data.msg.length <= 0 || data.msg == null){
 			socket.emit('error', 'Preencha o nome')
 		} else{
 			console.log(`${data.nome} ${data.msg}`)
