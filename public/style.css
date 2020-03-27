@@ -58,6 +58,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	background: var(--background-tertiary);
+	border-radius: 15px;
 }
 
 body{
@@ -70,27 +71,36 @@ body{
 	width: calc(100% - 350px);
 	outline: none;
 	border: none;
-	padding: 15px;
+	padding: 13px;
 	background: var(--background-primary);
 	margin-bottom: 20px;
 	color: #fff;
 	border-radius: 20px;
-	margin: 35px;
+	margin: 40px;
+	position: relative;
+	left: 53px;
+	top: -34px;
 }
 
 .mensagens{
 	position: fixed;
 	width: calc(100% - 200px);
-	height: 100%;
+	height: calc(94% - 50px);
 	background: var(--background-secondary-alt);
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 #app .message{
 	display: block;
-	width: 100%;
+	width: auto;
 	position: relative;
 	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: #00000029;
+	margin: -8px;
+	left: 8px;
 }
 
 #app .message span{
@@ -103,7 +113,7 @@ body{
 
 #msg{
 	position: fixed;
-	bottom: 0px;
+	bottom: -22px;
 	max-width: 800px;
 	width: 100%;
 	left: 50%;
@@ -163,16 +173,23 @@ body{
 .membros{
 	position: fixed;
 	right: 0px;
-	background: rgba(0,0,0,.40);
+	background: #000;
 	color: #fff;
-	width: 200px;
+	width: 181px;
 	padding: 10px;
-	height: 100%;
+	height: calc(100% - 20px);
 	top: 0px;
+	z-index: 10000;
 }
 
 li{
 	list-style-type: none;
+	background: #3c3939;
+	padding: 8px;
+	box-shadow: 1px 1px 2px rgba(0,0,0,.40);
+	color: #fff;
+	border-radius: 5px;
+	margin-top: 10px;
 }
 
 .nome button{
@@ -261,8 +278,8 @@ li{
 	height: 44px;
 	background-image: url(emoji.png);
 	position: absolute;
-	top: 37px;
-	left: -5px;
+	top: 4px;
+	left: 16px;
 	transform: scale(0.6);
 	cursor: pointer;
 }
@@ -284,4 +301,29 @@ li{
 	position: relative !important;
 	top: -5px;
 	left: 2px;
+}
+
+@media screen and (max-width: 500px){
+    .membros{
+    	display: none;
+    }
+
+    .mensagens{
+    	width: 100%;
+    }
+
+    #msg input{
+    	width: 65%;
+    }
+
+    #app{
+    	width: 100%;
+    	height: 100%;
+    	top: 0px;
+    	border-radius: 0px;
+    }
+
+    #msg{
+    	bottom: -35px;
+    }
 }
