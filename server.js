@@ -56,6 +56,10 @@ io.on('connection', socket => {
 			membros.splice(id, 1)
 			socket.broadcast.emit('users', membros)
 			console.log(`${membro.nome} disconnect`)
+			socket.broadcast.emit('receberMensagem', {
+				"nome": membro.nome,
+				"msg": "Desconectou do servidor"
+			})
 		}
 	})
 })
