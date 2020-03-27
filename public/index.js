@@ -1,7 +1,7 @@
 
 
 $(document).ready(function(){
-var socket = io('http://localhost:8080')
+var socket = io('https://leptospirose.herokuapp.com/')
 socket.emit('connect', localStorage.getItem("token"))
 console.log("Connect")
 
