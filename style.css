@@ -81,10 +81,9 @@ body{
 .mensagens{
 	position: fixed;
 	width: calc(100% - 200px);
-	height: 100%;
+	height: 90%;
 	background: var(--background-secondary-alt);
 	overflow: auto;
-	height: 85%;
 }
 
 #app .message{
