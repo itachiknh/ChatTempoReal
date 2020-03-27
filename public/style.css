@@ -79,7 +79,7 @@ body{
 	margin: 40px;
 	position: relative;
 	left: 53px;
-	top: -6px;
+	top: -34px;
 }
 
 .mensagens{
@@ -277,7 +277,7 @@ li{
 	height: 44px;
 	background-image: url(emoji.png);
 	position: absolute;
-	top: 32px;
+	top: 4px;
 	left: 16px;
 	transform: scale(0.6);
 	cursor: pointer;
