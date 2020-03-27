@@ -15,10 +15,48 @@ app.use('/', (req, res) => {
 	res.render('index.html')
 })
 
+let membros = []
+
 io.on('connection', socket => {
+
+	socket.on('connect', data =>{
+		const membro = membros.find(e => e.token == data)
+		if(membro){
+		console.log(membro.nome)
+		}
+	})
+
 	socket.on('enviarMensagem', data =>{
-		socket.broadcast.emit('receberMensagem', data) //Pra outras pessoas
-		socket.emit('receberMensagem', data) //Eu
+		const membro = membros.find(e => e.token == data.token)
+		console.log(membro)
+		if(membro){
+		const message = {
+			"nome": membro.nome,
+			"msg": data.msg
+		}
+		socket.broadcast.emit('receberMensagem', message) //Pra outras pessoas
+		socket.emit('receberMensagem', message) //Eu
+		console.log(message.nome)
+		}
+	})
+	socket.on('generateToken', data => {
+		socket.emit('myToken', socket.id)
+		membros.push({
+			"nome": data,
+			"token": socket.id
+		})
+		console.log("Gerei um token")
+		socket.emit('users', membros)
+		socket.broadcast.emit('users', membros)
+	})
+	socket.on('disconnect', function (data) {
+		const membro = membros.find(e => e.token == socket.id)
+		if(membro){
+			const id = membros.indexOf(membro)
+			membros.splice(id, 1)
+			socket.broadcast.emit('users', membros)
+			console.log(`${membro.nome} disconnect`)
+		}
 	})
 })
 
